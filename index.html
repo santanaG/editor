@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Graham Smith">
+    <title>Super JS Editor</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <link rel="icon" href="/favicon.png">
+</head>
+<body>
+
+    <main>
+
+        <section class="Screen">
+            <div class="Viewport"></div>
+        </section>
+
+        <section class="Sidebar">
+
+            <div class="Panels">
+
+                <!-- Info & Controls -->
+                <div class="Panel InfoPanel">
+                    <div class="PanelHeader">Controls</div>
+                    <div class="InfoPanel-container">
+                        <span class="Button Button--small fill">fill</span>
+                        <span class="Button Button--small delete">erase</span>
+                        <div style="float: right">
+                            <span class="Button Button--small save">save</span>
+                            <span class="Button Button--small load">load</span>
+                            <span class="Button Button--small export">export</span>
+                        </div>
+                        <!-- <button class="explode-button">Boom</button> -->
+                    </div>
+                </div>
+
+                <!-- Zoom -->
+                <div class="Panel ZoomPanel">
+                    <div class="PanelHeader">Zoom</div>
+                    <div class="ZoomPanel-container">
+                        <input class="ZoomPanel-slider" type="range" name="zoom-slider" min="1" max="5" step="1" value="3">
+                        <span class="ZoomPanel-factor">100%</span>
+                    </div>
+                </div>
+
+                <!-- Maps -->
+                <div class="Panel MapsPanel">
+                    <div class="PanelHeader">Maps</div>
+                    <div class="MapsPanel-container"></div>
+                </div>
+
+                <!-- Layers -->
+                <div class="Panel LayersPanel">
+                    <div class="PanelHeader">Layers</div>
+                    <ul class="LayersPanel-layers"></ul>
+                </div>
+
+                <!-- Tilesets -->
+                <div class="Panel TilesetsPanel">
+                    <div class="PanelHeader">Tilesets</div>
+
+                    <div class="tabs">
+                        <div data-tab="tiles" class="active">Tiles</div>
+                        <div data-tab="patterns">Patterns</div>
+                        <div data-tab="collisions">Collisions</div>
+                    </div>
+
+                    <div class="tab-container">
+                        <div data-tab="tiles">
+                            <div class="Tiles"></div>
+                        </div>
+                        <div data-tab="patterns">
+                            <div class="Patterns"></div>
+                        </div>
+                        <div data-tab="collisions">
+                            <div class="Collisions"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Entities -->
+                <div class="Panel EntitiesPanel">
+                    <div class="PanelHeader">Entities</div>
+                    <div class="EntitiesPanel-container"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <div class="Overlay"></div>
+    
+    <div class="Modal">
+        <div class="Modal-close">close</div>
+        <div class="Modal-content"></div>
+        <div class="Modal-footer">
+            <div class="Button copy">Copy to clipboard</div>
+            <div class="Button import">Import</div>
+        </div>
+    </div>
+
+    <!--
+    ********************************
+        Scripts
+    ********************************
+    -->
+
+    <!-- Helpers -->
+    <script src="js/helpers.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/eventer.js"></script>
+
+    <!-- DB -->
+    <script src="js/lib/db.js"></script>
+
+    <!-- UI -->
+    <script src="js/ui/ui.js"></script>
+    <script src="js/ui/marker.js"></script>
+    <script src="js/ui/modal.js"></script>
+    <script src="js/ui/maps-panel.js"></script>
+    <script src="js/ui/layers-panel.js"></script>
+    <script src="js/ui/patterns-panel.js"></script>
+    <script src="js/ui/tilesets-panel.js"></script>
+    <script src="js/ui/collisions-panel.js"></script>
+    <script src="js/ui/entities-panel.js"></script>
+
+    <!-- Engine -->
+    <script src="js/lib/tile.js"></script>
+    <script src="js/lib/sprite.js"></script>
+    <script src="js/lib/pattern.js"></script>
+    <script src="js/lib/entity.js"></script>
+    <script src="js/lib/layer.js"></script>
+    <script src="js/lib/grid.js"></script>
+    <script src="js/lib/gamemap.js"></script>
+    <script src="js/lib/viewport.js"></script>
+
+    <!-- Editor -->
+    <script src="js/_config.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+        // Begin!
+        Editor.init(CONFIG);
+    </script>
+</body>
+</html>
